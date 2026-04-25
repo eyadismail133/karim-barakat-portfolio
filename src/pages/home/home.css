@@ -1,0 +1,139 @@
+.home-page {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-page-image-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  margin: 20px 20px 0 0;
+  align-items: center;
+  padding-inline: 20px;
+}
+
+.home-page-image-wrapper img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.home-page-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+/* call to action */
+.home-page-call-to-action {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #000;
+  position: relative;
+  cursor: pointer;
+}
+
+/* underline animation */
+.home-page-call-to-action::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.home-page-call-to-action:hover::after {
+  width: 100%;
+}
+
+/* email */
+.home-page-email {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #555;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* subtle underline */
+.home-page-email::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.home-page-email:hover {
+  color: #000;
+}
+
+.home-page-email:hover::after {
+  background-color: #000;
+}
+
+/* title */
+.home-page-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+/* description */
+.home-page-description {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
+  max-width: 300px;
+}
+
+.home-page-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-showcase {
+  margin: 80px 0;
+  padding: 0 20px;
+}
+.work-showcase-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.work-cards-bar {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #eee;
+}
+.work-cards-bar::-webkit-scrollbar {
+  height: 8px;
+}
+.work-cards-bar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.work-cards-bar::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 4px;
+}

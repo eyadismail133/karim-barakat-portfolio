@@ -1,0 +1,27 @@
+.work-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  width: 240px;
+  margin: 0 12px;
+  flex: 0 0 auto;
+  transition: transform 0.3s;
+}
+.work-card-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.work-card-content {
+  padding: 16px;
+}
+.work-card-title {
+  font-size: 1.2rem;
+  margin: 0 0 8px 0;
+}
+.work-card-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}

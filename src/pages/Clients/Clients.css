@@ -1,0 +1,110 @@
+.clients-wrapper {
+  padding: 100px 20px;
+  background-color: #ffffff; /* Use a clean white background */
+  display: flex;
+  justify-content: center;
+}
+
+.clients-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.text-content {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* The Cloud Grid */
+.logo-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 60px 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+.logo-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Entrance Animation */
+  opacity: 0;
+  animation: fadeIn 0.8s var(--delay) forwards;
+}
+
+.floating-logo {
+  max-width: 140px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+
+  /* THIS REMOVES THE WHITE BACKGROUND */
+  mix-blend-mode: multiply;
+
+  /* Modern Look: Grayscale and subtle blur */
+  filter: grayscale(100%) contrast(0.8) opacity(0.5);
+
+  /* The "Float" effect */
+  animation: floating var(--float-duration) ease-in-out infinite alternate;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+/* Hover States: The "Pop" effect */
+.logo-item:hover .floating-logo {
+  filter: grayscale(0%) contrast(1) opacity(1);
+  transform: scale(1.15) translateY(-10px);
+  animation-play-state: paused; /* Stop floating on hover */
+}
+
+/* Entrance Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating Animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .logo-cloud {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .floating-logo {
+    max-width: 100px;
+  }
+}
