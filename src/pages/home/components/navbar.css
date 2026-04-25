@@ -1,0 +1,97 @@
+/* Reset some basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar container */
+.navbar {
+  width: 100%;
+  background-color: #0d0d0d;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Inner container */
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Nav list */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+/* Links */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.nav-link:hover {
+  color: #fff;
+}
+
+/* Active link */
+.nav-link.active {
+  color: #fff;
+}
+
+/* Underline animation */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+
+  transition: width 0.3s ease;
+}
+
+/* Hover underline */
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active underline */
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .nav-list {
+    gap: 15px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+}

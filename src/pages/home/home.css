@@ -22,6 +22,13 @@
   border-radius: 10px;
 }
 
+.home-page-image-wrapper p {
+  font-size: 20px;
+  color: #e0dada;
+  max-width: 500px;
+  margin-left: 20px;
+}
+
 .home-page-content {
   display: flex;
   justify-content: space-between;
@@ -34,7 +41,7 @@
   margin-top: 20px;
   font-weight: 600;
   font-size: 20px;
-  color: #000;
+  color: yellow;
   position: relative;
   cursor: pointer;
 }
@@ -47,7 +54,7 @@
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #000;
+  background-color: white;
   transition: width 0.3s ease;
 }
 
@@ -60,7 +67,7 @@
   display: inline-block;
   margin-top: 40px;
   font-size: 16px;
-  color: #555;
+  color: #bb7474;
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
@@ -79,7 +86,7 @@
 }
 
 .home-page-email:hover {
-  color: #000;
+  color: #9f7d7d;
 }
 
 .home-page-email:hover::after {
@@ -100,7 +107,7 @@
 .home-page-description {
   font-size: 16px;
   margin-top: 10px;
-  color: #333;
+  color: #e0dada;
   max-width: 300px;
 }
 
@@ -136,4 +143,16 @@
 .work-cards-bar::-webkit-scrollbar-track {
   background: #eee;
   border-radius: 4px;
+}
+.carousel-item {
+  padding: 30px 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+}
+
+.carousel-inner {
+  overflow: visible;
 }

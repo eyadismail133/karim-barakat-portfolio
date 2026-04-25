@@ -1,19 +1,13 @@
 import "./bio.css";
-import {
-  ChevronDown,
-  Mail,
-  ArrowUpRight,
-  Award,
-  Film,
-  Globe2,
-} from "lucide-react";
-import { useRef } from "react"; // ✅ added
+import { ChevronDown, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import karimBioImage from "../../assets/kareem-bio.png";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import osta from "../../assets/osta.JPG";
 import school from "../../assets/school.JPG";
 import university from "../../assets/university.jpg";
-import location from "../../assets/location.mov";
+import location from "../../assets/karim.mov";
+import poster from "../../assets/poster.JPG";
+import { useRef } from "react";
 
 const aboutItems = [
   {
@@ -32,173 +26,160 @@ const aboutItems = [
     image: location,
   },
   {
+    title: "Born in Cairo / EG",
+    text: "Karim was born in Cairo, Egypt, where he spent his childhood and teenage years before moving abroad for his studies and career.",
+    image: poster,
+  },
+  {
     title: "American University - Cairo / EG",
-    text: "It may not be obvious, but Ali studied computer engineering at the American University in Cairo, with a minor in painting. Preferring storyboards to motherboards, he quickly abandoned a mediocre programming career to study Design and Art Direction at the Miami Ad School.",
+    text: "It may not be obvious, but Ali studied computer engineering at the American University in Cairo, with a minor in painting.",
     image: osta,
   },
 ];
 
-const awards = [
-  {
-    year: "/20",
-    award: "The One Show",
-    level: "Gold",
-    work: "Diesel / Be a Follower",
+// 🔥 animation variants
+const pageVariant = {
+  initial: { opacity: 0, filter: "blur(10px)", y: 20 },
+  animate: { opacity: 1, filter: "blur(0px)", y: 0 },
+  exit: { opacity: 0, filter: "blur(10px)", y: -20 },
+};
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15,
+    },
   },
-  {
-    year: "/19",
-    award: "Cannes Lion",
-    level: "Gold Lion (Social Film)",
-    work: "Diesel / Be a Follower",
-  },
-  {
-    year: "/17",
-    award: "Dubai Lynx Film",
-    level: "Craft Silver",
-    work: "Emirates / Travel for Real",
-  },
-  {
-    year: "/16",
-    award: "Dubai Lynx Film",
-    level: "Grand Prix",
-    work: "Du Interviews",
-  },
-  {
-    year: "/15",
-    award: "D&AD",
-    level: "Yellow Pencil (Direction)",
-    work: "Du Telecom",
-  },
-  {
-    year: "/11",
-    award: "Dubai Lynx Film",
-    level: "Craft Grand Prix",
-    work: "Never Say No To Panda",
-  },
-];
+};
 
-const contacts = [
-  {
-    region: "United Kingdom",
-    name: "Caviar",
-    address: "Suite 2, 25-26 Dering Street, Mayfair, London W1S 1AT",
-    phone: "+44 (0) 786 797 1545",
-    email: "james@artsandsciences.com",
-    site: "uk.artsandsciences.com",
-  },
-  {
-    region: "France",
-    name: "Wanda",
-    address:
-      "50 Avenue Du Président Wilson Bâtiment 126A 93210 Saint Denis La Plaine CEDEX",
-    phone: "+33 (0)1 49 46 63 63",
-    email: "hello@wanda.fr",
-    site: "wanda.net",
-  },
-  {
-    region: "United States",
-    name: "Little Minx",
-    address: "1758 Berkeley St. Santa Monica, CA 90404",
-    phone: "(310) 566-0536",
-    email: "rhea@littleminx.tv",
-    site: "www.littleminx.tv",
-  },
-  {
-    region: "Germany and Austria",
-    name: "Markenfilm",
-    address: "Vorwerkstraße 12, 20357 Hamburg",
-    phone: "+49 40 8000770",
-    email: "stephan.brockmann@markenfilm.de",
-    site: "www.markenfilm.com",
-  },
-  {
-    region: "Middle East",
-    name: "Good People",
-    address: "20 Saray El Gezira, Cairo, Zamalek 11211",
-    phone: "+201002512085",
-    email: "khaled@goodpeople.film",
-    site: "www.goodpeople.film",
-  },
-];
-
-function SectionHeading({ eyebrow, title, subtitle }) {
-  return (
-    <div className="section-heading">
-      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2>{title}</h2>
-      {subtitle ? <p className="subtitle">{subtitle}</p> : null}
-    </div>
-  );
-}
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+};
 
 export default function Bio() {
-  const videoRef = useRef(null); // ✅ added
+  const videoRef = useRef(null);
 
   return (
-    <div className="page">
+    <motion.div
+      className="page"
+      variants={pageVariant}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.5 }}
+    >
       <main>
+        {/* HERO */}
         <section className="hero" id="bio">
           <div className="container" style={{ display: "flex" }}>
-            <div className="hero-copy">
-              <p className="eyebrow">Biography</p>
-              <h1>Karim Barakat</h1>
-              <p className="lead">
+            <motion.div
+              className="hero-copy"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.p className="eyebrow" variants={fadeUp}>
+                Biography
+              </motion.p>
+
+              <motion.h1 variants={fadeUp}>Karim Barakat</motion.h1>
+
+              <motion.p className="lead" variants={fadeUp}>
                 As a Creative Copywriter, my job is to transform your business
                 goals into psychological triggers and creative narratives that
-                don’t just capture attention but convert it into revenue...
-              </p>
+                don’t just capture attention but convert it into revenue.
+              </motion.p>
 
-              <div className="hero-actions">
-                <a className="pill" href="mailto:karimbarakatt1@gmail.com">
+              <motion.div className="hero-actions" variants={fadeUp}>
+                <a className="pill" href="mailto:karimbarkatt1@gmail.com">
                   <Mail size={16} /> Mail
                 </a>
-                <a className="scroll-hint" href="#work">
+
+                <a className="scroll-hint" href="#about">
                   Explore sections <ChevronDown size={16} />
                 </a>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            <div>
+            {/* IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
               <img src={karimBioImage} alt="Karim Barakat" />
-            </div>
+            </motion.div>
 
-            <div className="social-link">
-              <div>
-                <FaInstagram size={30} color="#E4405F" />
-                <a href="#">Instagram</a>
-              </div>
-              <div>
-                <FaLinkedin size={30} color="#0077B5" />
-                <a href="#">LinkedIn</a>
-              </div>
-            </div>
+            {/* SOCIAL */}
+            <motion.div
+              className="social-link"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.div variants={fadeUp}>
+                <a
+                  className="instagram"
+                  href="https://www.instagram.com/karimbarkaat?igsh=MXVvZ3VxN3Z0eG1lNQ%3D%3D&utm_source=qr"
+                >
+                  Instagram
+                </a>
+              </motion.div>
+
+              <motion.div variants={fadeUp}>
+                <a
+                  className="linkedin"
+                  href="https://www.linkedin.com/in/karim-barkat-33baaa216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                >
+                  LinkedIn
+                </a>
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
-        <section className="section">
+        {/* ABOUT */}
+        <section className="section" id="about">
           <div className="container">
-            <SectionHeading
-              eyebrow="About"
-              title="A stacked story with image-led sections"
-              subtitle="Magazine-style layout"
-            />
+            <motion.div
+              className="section-heading"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.p className="eyebrow" variants={fadeUp}>
+                About
+              </motion.p>
+              <motion.h2 variants={fadeUp}>
+                A stacked story with image-led sections
+              </motion.h2>
+              <motion.p className="subtitle" variants={fadeUp}>
+                The page reads like a magazine profile with visual rhythm.
+              </motion.p>
+            </motion.div>
 
             <div className="about-grid">
               <div className="about-list">
                 {aboutItems.map((item, index) => (
-                  <article className="about-card" key={index}>
+                  <motion.article
+                    className="about-card"
+                    key={index}
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.15 }}
+                  >
                     <div className="about-media">
                       {item.image.endsWith(".mov") ? (
                         <video
-                          ref={videoRef} // ✅ attach ref
                           className="about-video"
+                          ref={videoRef}
                           src={item.image}
                           muted
                           autoPlay
                           loop
                           onLoadedMetadata={() => {
                             if (videoRef.current) {
-                              videoRef.current.playbackRate = 1.25; // ✅ 2x speed
+                              videoRef.current.playbackRate = 1.25;
                             }
                           }}
                         />
@@ -211,13 +192,23 @@ export default function Bio() {
                       <h3>{item.title}</h3>
                       <p>{item.text}</p>
                     </div>
-                  </article>
+                  </motion.article>
                 ))}
               </div>
             </div>
           </div>
         </section>
       </main>
-    </div>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="container footer-inner">
+          <div>All Rights Reserved © 2026</div>
+          <a className="back-to-top" href="#bio">
+            ↑ Back to top
+          </a>
+        </div>
+      </footer>
+    </motion.div>
   );
 }
