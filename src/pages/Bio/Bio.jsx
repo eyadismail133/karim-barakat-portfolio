@@ -78,19 +78,19 @@ export default function Bio() {
               initial="initial"
               animate="animate"
             >
-              <motion.p className="eyebrow" variants={fadeUp}>
+              <p className="eyebrow" variants={fadeUp}>
                 Biography
-              </motion.p>
+              </p>
 
-              <motion.h1 variants={fadeUp}>Karim Barakat</motion.h1>
+              <h1 variants={fadeUp}>Karim Barkat</h1>
 
-              <motion.p className="lead" variants={fadeUp}>
+              <p className="lead" variants={fadeUp}>
                 As a Creative Copywriter, my job is to transform your business
                 goals into psychological triggers and creative narratives that
                 don’t just capture attention but convert it into revenue.
-              </motion.p>
+              </p>
 
-              <motion.div className="hero-actions" variants={fadeUp}>
+              <div className="hero-actions" variants={fadeUp}>
                 <a className="pill" href="mailto:karimbarkatt1@gmail.com">
                   <Mail size={16} /> Mail
                 </a>
@@ -98,7 +98,7 @@ export default function Bio() {
                 <a className="scroll-hint" href="#about">
                   Explore sections <ChevronDown size={16} />
                 </a>
-              </motion.div>
+              </div>
             </motion.div>
 
             {/* IMAGE */}
@@ -107,7 +107,7 @@ export default function Bio() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <img src={karimBioImage} alt="Karim Barakat" />
+              <img src={karimBioImage} alt="Karim Barkat" />
             </motion.div>
 
             {/* SOCIAL */}
@@ -147,14 +147,12 @@ export default function Bio() {
               initial="initial"
               animate="animate"
             >
-              <motion.p className="eyebrow" variants={fadeUp}>
+              <p className="eyebrow" variants={fadeUp}>
                 About
-              </motion.p>
-              <motion.h2 variants={fadeUp}>
-                A stacked story with image-led sections
-              </motion.h2>
+              </p>
+              <h2 variants={fadeUp}>The Art of Precision</h2>
               <motion.p className="subtitle" variants={fadeUp}>
-                The page reads like a magazine profile with visual rhythm.
+                Translating Brands into Crafted Narratives
               </motion.p>
             </motion.div>
 

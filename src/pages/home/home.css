@@ -16,9 +16,75 @@
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  text-align: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 40px;
   padding: 0 16px;
+}
+
+/* LEFT TEXT */
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CENTER NAME (BIG IMPACT STYLE) */
+.hero-name {
+  flex: 1;
+  text-align: center;
+
+  font-size: 90px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  color: #fff;
+
+  opacity: 0;
+  transform: translateY(40px);
+
+  animation: fadeUpName 0.9s ease forwards;
+}
+
+/* IMAGE */
+.hero-image {
+  flex: 1;
+  max-width: 320px;
+  border-radius: 12px;
+}
+
+/* =========================
+   ANIMATION (NAME fallback CSS)
+========================= */
+
+@keyframes fadeUpName {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .home-page-image-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: 36px;
+  }
+
+  .hero-image {
+    max-width: 260px;
+  }
 }
 
 .home-page-image-wrapper img {
@@ -65,7 +131,7 @@
   margin-top: 16px;
   font-weight: 600;
   font-size: 16px;
-  color: yellow;
+  color: rgb(228, 228, 183);
   position: relative;
   cursor: pointer;
 }
@@ -252,4 +318,77 @@
     max-width: 1200px;
     margin: 80px auto;
   }
+}
+/* =========================
+   CV DOWNLOAD BUTTON (PREMIUM)
+========================= */
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 20px;
+  padding: 12px 18px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  color: #fff;
+  background: linear-gradient(135deg, #111, #000);
+
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+  transform: translateY(0);
+}
+
+/* subtle glow */
+.cv-download-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: all 0.6s ease;
+}
+
+/* hover effect */
+.cv-download-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* shine animation on hover */
+.cv-download-btn:hover::before {
+  left: 120%;
+}
+
+/* active click effect */
+.cv-download-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* optional icon animation (if you add an icon later) */
+.cv-download-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.cv-download-btn:hover svg {
+  transform: translateY(-2px) rotate(-10deg);
 }

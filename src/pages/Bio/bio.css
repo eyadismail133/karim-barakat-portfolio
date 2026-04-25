@@ -138,7 +138,7 @@ body {
 /* CONTENT */
 .about-content h3 {
   font-size: 14px;
-  color: var(--muted);
+  margin-top: 5px;
 }
 
 .about-content p {
@@ -290,5 +290,91 @@ body {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
+  }
+}
+
+/* =========================
+   PILL MAIL BUTTON
+========================= */
+
+.pill,
+a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+  background: #000;
+  border-color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.pill svg {
+  transition: transform 0.25s ease;
+}
+
+.pill:hover svg {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* =========================
+   SCROLL HINT LINK
+========================= */
+
+.scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 18px;
+  font-size: 14px;
+  color: #aaa;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.scroll-hint:hover {
+  color: #fff;
+}
+
+/* underline animation */
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 1px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.scroll-hint:hover::after {
+  width: 100%;
+}
+
+/* subtle bounce animation for arrow */
+.scroll-hint svg {
+  animation: bounceDown 1.5s infinite;
+}
+
+@keyframes bounceDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
   }
 }

@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import cv from "../../assets/Karim barkat C.V.pdf";
 const workItems = [
   {
     title: "Ad Campaign 1",
@@ -116,7 +116,9 @@ const Home = () => {
       {/* HERO SECTION */}
       <article className="home-page">
         <div className="home-page-image-wrapper">
+          {/* LEFT TEXT BLOCK */}
           <motion.div
+            className="hero-text"
             variants={staggerContainer}
             initial="initial"
             animate="animate"
@@ -134,19 +136,32 @@ const Home = () => {
 
             <motion.a
               variants={fadeUp}
-              className="home-page-email"
-              href="mailto:karimbarkatt1@gmail.com"
+              className="cv-download-btn"
+              href={cv}
+              download
             >
-              karimbarkatt1@gmail.com
+              Download CV
             </motion.a>
           </motion.div>
 
+          {/* CENTER NAME (ANIMATED DOWN → UP) */}
+          <motion.div
+            className="hero-name"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Karim Barkat
+          </motion.div>
+
+          {/* IMAGE */}
           <motion.img
             src={work2}
-            alt="Karim Barakat"
+            alt="Karim Barkat"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
+            className="hero-image"
           />
         </div>
 
@@ -156,15 +171,15 @@ const Home = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.h1 className="home-page-title" variants={fadeUp}>
+          <h1 className="home-page-title" variants={fadeUp}>
             <span>Creative</span>
             <span>Copywriter</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p className="home-page-description" variants={fadeUp}>
-            karim barakat passionate copywriter & content creator based in
-            Cairo-Egypt With my love for advertising and my thirst for knowledge
-          </motion.p>
+          <p className="home-page-description" variants={fadeUp}>
+            karim barkat passionate copywriter & content creator based in
+            Cairo-Egypt With love for advertising and thirst for knowledge
+          </p>
         </motion.div>
       </article>
 
