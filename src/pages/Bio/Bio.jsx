@@ -11,28 +11,28 @@ import { useRef } from "react";
 
 const aboutItems = [
   {
-    title: "Shooting for Coca-Cola - Capetown / ZA (2013)",
-    text: "From Romania Ali moved to Germany with Leagas Delaney, Hamburg. He later built a global career across Leo Burnett, JWT, McCann, and DDB-Berlin.",
+    title: "The Storyteller’s Pivot",
+    text: "Believe it or not, but karim studied Languages and Translation (Chinese Department). Preferring storylines to syntax, he decided to pivot from translating characters to creating them. He followed his passion for the advertising world by joining Cairo Ad School to master the craft of Ad Filmmaking and Creative Strategy",
     image: university,
   },
   {
-    title: "Miami ad school - Miami / USA",
-    text: "Ali spent a little over a year in Miami before moving to Romania as a Junior Art Director for D’Arcy Bucharest. He met incredible people there, and they’re still friends to this day.",
+    title: "Cairo ad school - Cairo / EGY",
+    text: "To bridge the gap between words and visuals, I pursued Cairo Ad School (CAS), enrolling in the Ad Filmmaking Diploma By merging strategic thinking with technical execution, I’ve ensuring that every concept I develop is not only creatively sound but also production-ready and visually compelling",
     image: school,
   },
   {
-    title: "Miami ad school - Miami / USA",
-    text: "Ali spent a little over a year in Miami before moving to Romania as a Junior Art Director for D’Arcy Bucharest. He met incredible people there, and they’re still friends to this day.",
+    title: "Script to Screen",
+    text: "I bring scripts to life through hands-on experience on major sets like Careem and Tayar Gedeed This background allows me to bridge the gap between directing and brand messaging, ensuring every project is executed with precision from the first storyboard to the final edit",
     image: location,
   },
   {
-    title: "Born in Cairo / EG",
-    text: "Karim was born in Cairo, Egypt, where he spent his childhood and teenage years before moving abroad for his studies and career.",
+    title: "Street Advertising",
+    text: "My work doesn't just sit behind screens; it owns the streets. From major highways to city streets across Egypt, my ads are hard to miss and impossible to ignore",
     image: poster,
   },
   {
-    title: "American University - Cairo / EG",
-    text: "It may not be obvious, but Ali studied computer engineering at the American University in Cairo, with a minor in painting.",
+    title: "The Prime Cut",
+    text: `In the world of advertising, I consider myself the osta of this world Much like a master butcher who treats every cut with surgical precision I don't just write I Trim <br /> With 5+ years across Egypt and the Gulf, I know exactly where the prime cuts of a brand’s story lie, stripping away the noise to serve content that is as lean, high-quality, and satisfying as a master’s work.`,
     image: osta,
   },
 ];
@@ -190,7 +190,7 @@ export default function Bio() {
 
                     <div className="about-content">
                       <h3>{item.title}</h3>
-                      <p>{item.text}</p>
+                      <p dangerouslySetInnerHTML={{ __html: item.text }} />
                     </div>
                   </motion.article>
                 ))}

@@ -1,52 +1,75 @@
+/* =========================
+   BASE (Mobile First)
+========================= */
+
 .home-page {
-  height: 80vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 20px 0;
 }
 
+/* IMAGE + TEXT WRAPPER */
 .home-page-image-wrapper {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 100%;
-  margin: 20px 20px 0 0;
+  flex-direction: column-reverse;
   align-items: center;
-  padding-inline: 20px;
+  text-align: center;
+  gap: 20px;
+  padding: 0 16px;
 }
 
 .home-page-image-wrapper img {
-  width: 300px;
-  height: auto;
+  width: 100%;
+  max-width: 260px;
   border-radius: 10px;
 }
 
 .home-page-image-wrapper p {
-  font-size: 20px;
+  font-size: 16px;
   color: #e0dada;
-  max-width: 500px;
-  margin-left: 20px;
+  max-width: 100%;
 }
 
+/* CONTENT */
 .home-page-content {
   display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
 }
 
-/* call to action */
+/* TITLE */
+.home-page-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* DESCRIPTION */
+.home-page-description {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #e0dada;
+  max-width: 100%;
+}
+
+/* CTA */
 .home-page-call-to-action {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 16px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   color: yellow;
   position: relative;
   cursor: pointer;
 }
 
-/* underline animation */
 .home-page-call-to-action::after {
   content: "";
   position: absolute;
@@ -62,18 +85,16 @@
   width: 100%;
 }
 
-/* email */
+/* EMAIL */
 .home-page-email {
   display: inline-block;
-  margin-top: 40px;
-  font-size: 16px;
+  margin-top: 20px;
+  font-size: 14px;
   color: #bb7474;
   text-decoration: none;
   position: relative;
-  transition: color 0.3s ease;
 }
 
-/* subtle underline */
 .home-page-email::after {
   content: "";
   position: absolute;
@@ -82,7 +103,6 @@
   width: 100%;
   height: 1px;
   background-color: #ccc;
-  transition: background-color 0.3s ease;
 }
 
 .home-page-email:hover {
@@ -93,66 +113,143 @@
   background-color: #000;
 }
 
-/* title */
-.home-page-title {
-  display: flex;
-  flex-direction: column;
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 1;
-  margin: 0;
-}
-
-/* description */
-.home-page-description {
-  font-size: 16px;
-  margin-top: 10px;
-  color: #e0dada;
-  max-width: 300px;
-}
-
-.home-page-content {
-  display: flex;
-  justify-content: space-between;
-}
+/* =========================
+   WORK SECTION
+========================= */
 
 .work-showcase {
-  margin: 80px 0;
-  padding: 0 20px;
+  margin: 60px 0;
+  padding: 0 16px;
 }
+
 .work-showcase-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  font-weight: 600;
-}
-.work-cards-bar {
-  display: flex;
-  overflow-x: auto;
-  gap: 16px;
-  padding-bottom: 12px;
-  scrollbar-width: thin;
-  scrollbar-color: #888 #eee;
-}
-.work-cards-bar::-webkit-scrollbar {
-  height: 8px;
-}
-.work-cards-bar::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-.work-cards-bar::-webkit-scrollbar-track {
-  background: #eee;
-  border-radius: 4px;
-}
-.carousel-item {
-  padding: 30px 0;
+  text-align: center;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
+/* 🔥 SWIPER 3D STYLING */
+.work-swiper-wrapper {
+  width: 100%;
+  padding: 60px 0;
 }
 
-.carousel-inner {
-  overflow: visible;
+.work-swiper {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+/* each slide */
+.swiper-slide-custom {
+  width: 280px !important;
+  height: auto;
+}
+
+/* make swiper look more premium */
+.swiper {
+  overflow: visible !important;
+}
+
+/* center active slide emphasis */
+.swiper-slide {
+  transition: transform 0.4s ease;
+}
+
+/* pagination */
+.swiper-pagination-bullet {
+  background: #000;
+  opacity: 0.3;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* navigation arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  color: black;
+}
+
+/* =========================
+   410px (Large Phones)
+========================= */
+
+@media (min-width: 410px) {
+  .home-page-title {
+    font-size: 48px;
+  }
+
+  .home-page-image-wrapper p {
+    font-size: 17px;
+  }
+}
+
+/* =========================
+   768px (Tablet)
+========================= */
+
+@media (min-width: 768px) {
+  .home-page-image-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .home-page-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    align-items: flex-end;
+  }
+
+  .home-page-title {
+    font-size: 60px;
+  }
+
+  .home-page-description {
+    max-width: 300px;
+  }
+}
+
+/* =========================
+   1024px (Laptop)
+========================= */
+
+@media (min-width: 1024px) {
+  .home-page {
+    height: 80vh;
+  }
+
+  .home-page-title {
+    font-size: 72px;
+  }
+
+  .home-page-image-wrapper img {
+    max-width: 300px;
+  }
+}
+
+/* =========================
+   1440px (Large Screens)
+========================= */
+
+@media (min-width: 1440px) {
+  .home-page-title {
+    font-size: 90px;
+  }
+
+  .home-page-description {
+    font-size: 18px;
+  }
+
+  .home-page-image-wrapper p {
+    font-size: 20px;
+    max-width: 500px;
+  }
+
+  .work-showcase {
+    max-width: 1200px;
+    margin: 80px auto;
+  }
 }

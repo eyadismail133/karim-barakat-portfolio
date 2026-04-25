@@ -5,6 +5,15 @@ import { motion } from "framer-motion";
 import work1 from "../../assets/IMG_8644.PNG";
 import work2 from "../../assets/IMG_8649.PNG";
 
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 const workItems = [
   {
     title: "Ad Campaign 1",
@@ -78,7 +87,7 @@ const workItems = [
   },
 ];
 
-// 🔥 animation variants (unchanged)
+// animations (unchanged)
 const pageVariant = {
   initial: { opacity: 0, filter: "blur(10px)", y: 20 },
   animate: { opacity: 1, filter: "blur(0px)", y: 0 },
@@ -86,11 +95,7 @@ const pageVariant = {
 };
 
 const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
+  animate: { transition: { staggerChildren: 0.15 } },
 };
 
 const fadeUp = {
@@ -99,12 +104,6 @@ const fadeUp = {
 };
 
 const Home = () => {
-  // split into groups of 3 (Bootstrap requirement)
-  const slides = [];
-  for (let i = 0; i < workItems.length; i += 3) {
-    slides.push(workItems.slice(i, i + 3));
-  }
-
   return (
     <motion.div
       className="home-wrapper"
@@ -114,7 +113,7 @@ const Home = () => {
       exit="exit"
       transition={{ duration: 0.5 }}
     >
-      {/* HERO SECTION (unchanged) */}
+      {/* HERO SECTION */}
       <article className="home-page">
         <div className="home-page-image-wrapper">
           <motion.div
@@ -169,58 +168,41 @@ const Home = () => {
         </motion.div>
       </article>
 
-      {/* WORK SECTION - BOOTSTRAP CAROUSEL */}
+      {/* 🔥 3D SWIPER WORK SECTION */}
       <article className="work-showcase">
         <motion.h2
           className="work-showcase-title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
         >
           My Work
         </motion.h2>
 
-        <div
-          id="workCarousel"
-          className="carousel slide"
-          data-bs-ride="carousel"
-          data-bs-interval="3000"
-        >
-          <div className="carousel-inner">
-            {slides.map((group, index) => (
-              <div
-                key={index}
-                className={`carousel-item ${index === 0 ? "active" : ""}`}
-              >
-                <div className="d-flex justify-content-center gap-3">
-                  {group.map((item, idx) => (
-                    <div key={idx} style={{ flex: 1 }}>
-                      <Card {...item} />
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <div className="work-swiper-wrapper">
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            loop={true}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 120,
+              modifier: 2,
+              slideShadows: true,
+            }}
+            pagination={{ clickable: true }}
+            navigation={true}
+            modules={[EffectCoverflow, Pagination, Navigation]}
+            className="work-swiper"
+          >
+            {workItems.map((item, index) => (
+              <SwiperSlide key={index} className="swiper-slide-custom">
+                <Card {...item} />
+              </SwiperSlide>
             ))}
-          </div>
-
-          {/* controls */}
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#workCarousel"
-            data-bs-slide="prev"
-          >
-            <span className="carousel-control-prev-icon" />
-          </button>
-
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#workCarousel"
-            data-bs-slide="next"
-          >
-            <span className="carousel-control-next-icon" />
-          </button>
+          </Swiper>
         </div>
       </article>
     </motion.div>
