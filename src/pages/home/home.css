@@ -43,8 +43,19 @@
   transform: translateY(60px);
 
   animation: fadeUpName 0.9s ease forwards;
+  line-height: 1; /* removes extra vertical space */
+  margin: 0;
+  padding: 0;
 }
 
+.first-name,
+.last-name {
+  display: block;
+}
+
+.last-name {
+  margin-top: 4px;
+}
 /* IMAGE */
 .hero-image {
   flex: 1;
@@ -127,7 +138,6 @@
 /* CTA */
 .home-page-call-to-action {
   display: inline-block;
-  margin-top: 16px;
   font-weight: 600;
   font-size: 16px;
   color: rgb(228, 228, 183);

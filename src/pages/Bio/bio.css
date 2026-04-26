@@ -428,6 +428,7 @@ a {
   font-weight: 700;
   position: relative;
   display: inline-block;
+  color: red;
 }
 
 /* subtle modern underline animation */

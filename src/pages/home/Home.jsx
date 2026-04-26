@@ -156,7 +156,8 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Karim Barkat
+            <span className="first-name">Karim</span>
+            <span className="last-name">Barkat</span>{" "}
           </motion.div>
 
           {/* IMAGE */}

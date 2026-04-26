@@ -36,7 +36,7 @@ const aboutItems = [
   },
   {
     title: "The Prime Cut",
-    text: `In the world of advertising, I consider myself the <span class="highlight">osta</span> of this world. Much like a master butcher who treats every cut with surgical precision, I don't just write — I trim.<br /><br />
+    text: `In the world of advertising, I consider myself <span class="highlight">The osta</span> of this world. Much like a master butcher who treats every cut with surgical precision, I don't just write — I trim.<br /><br />
   With <span class="highlight">5+ years</span> across Egypt and the Gulf, I know exactly where the prime cuts of a brand’s story lie, stripping away the noise to serve content that is as lean, high-quality, and satisfying as a master’s work.`,
     image: osta,
   },
@@ -71,11 +71,12 @@ export default function Bio() {
       initial="initial"
       animate="animate"
       exit="exit"
+      id="bio"
       transition={{ duration: 0.5 }}
     >
       <main>
         {/* HERO */}
-        <section className="hero" id="bio">
+        <section className="hero">
           <div className="container" style={{ display: "flex" }}>
             <motion.div
               className="hero-copy"
@@ -240,7 +241,7 @@ export default function Bio() {
       <footer className="footer">
         <div className="container footer-inner">
           <div>All Rights Reserved © 2026</div>
-          <a className="back-to-top" href="#bio">
+          <a className="back-to-top" href="#">
             ↑ Back to top
           </a>
         </div>

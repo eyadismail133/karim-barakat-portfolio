@@ -1,110 +1,101 @@
 .clients-wrapper {
-  padding: 100px 20px;
-  background-color: #ffffff; /* Use a clean white background */
-  display: flex;
-  justify-content: center;
+  background: #000;
+  color: #fff;
+  padding: 80px 40px;
+  overflow: hidden;
 }
 
 .clients-container {
   max-width: 1200px;
-  width: 100%;
+  margin: 0 auto;
 }
 
+/* TEXT */
 .text-content {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-size: 42px;
+  font-weight: 600;
   letter-spacing: -1px;
-  color: #111;
-  margin-bottom: 10px;
 }
 
 .subtitle {
-  color: #666;
-  font-size: 1.1rem;
+  font-size: 16px;
+  opacity: 0.6;
+  margin-top: 10px;
 }
 
-/* The Cloud Grid */
+/* GRID */
 .logo-cloud {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 60px 40px;
-  align-items: center;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
+/* CARD */
 .logo-item {
   position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
-  /* Entrance Animation */
-  opacity: 0;
-  animation: fadeIn 0.8s var(--delay) forwards;
+  align-items: center;
+
+  padding: 5px;
+  border-radius: 20px;
+
+  /* Stronger visibility */
+  background: rgba(255, 255, 255, 0.08);
+
+  animation: float var(--float-duration) ease-in-out infinite;
+  animation-delay: var(--delay);
 }
 
 .floating-logo {
-  max-width: 140px;
-  max-height: 60px;
-  width: auto;
-  height: auto;
+  max-width: 100%;
+  height: clamp(70px, 6vw, 90px);
+  object-fit: contain;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.logo-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.logo-item {
+  transform-style: preserve-3d;
+}
+
+/* IMAGE */
+.floating-logo {
+  max-width: 100%;
+  height: 60px;
   object-fit: contain;
 
-  /* THIS REMOVES THE WHITE BACKGROUND */
-  mix-blend-mode: multiply;
+  opacity: 0.85;
 
-  /* Modern Look: Grayscale and subtle blur */
-  filter: grayscale(100%) contrast(0.8) opacity(0.5);
-
-  /* The "Float" effect */
-  animation: floating var(--float-duration) ease-in-out infinite alternate;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  cursor: pointer;
+  transition: all 0.4s ease;
 }
 
-/* Hover States: The "Pop" effect */
-.logo-item:hover .floating-logo {
-  filter: grayscale(0%) contrast(1) opacity(1);
-  transform: scale(1.15) translateY(-10px);
-  animation-play-state: paused; /* Stop floating on hover */
+.floating-logo {
+  height: clamp(50px, 6vw, 80px);
 }
 
-/* Entrance Keyframes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Floating Animation */
-@keyframes floating {
+/* FLOAT ANIMATION */
+@keyframes float {
   0% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-10px) rotate(1deg);
+    transform: translateY(-10px);
   }
   100% {
-    transform: translateY(5px) rotate(-1deg);
-  }
-}
-
-/* Responsive adjustment */
-@media (max-width: 768px) {
-  .logo-cloud {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-  .floating-logo {
-    max-width: 100px;
+    transform: translateY(0px);
   }
 }
