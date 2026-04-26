@@ -14,6 +14,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import cv from "../../assets/Karim barkat C.V.pdf";
+import { Link } from "react-router-dom";
 const workItems = [
   {
     title: "Ad Campaign 1",
@@ -129,9 +130,11 @@ const Home = () => {
               isn’t just about being seen
               <br />
               it’s about being remembered <br />
-              <span className="home-page-call-to-action">
-                Ready to start the game?
-              </span>
+              <Link to="/contact">
+                <span className="home-page-call-to-action">
+                  Ready to start the game?
+                </span>
+              </Link>
             </motion.p>
 
             <motion.a

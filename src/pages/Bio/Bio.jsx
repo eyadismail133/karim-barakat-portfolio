@@ -11,8 +11,12 @@ import { useRef } from "react";
 
 const aboutItems = [
   {
-    title: "The Storyteller’s Pivot",
-    text: "Believe it or not, but karim studied Languages and Translation (Chinese Department). Preferring storylines to syntax, he decided to pivot from translating characters to creating them. He followed his passion for the advertising world by joining Cairo Ad School to master the craft of Ad Filmmaking and Creative Strategy",
+    titleCn: "故事讲述者的转型",
+    titleEn: "The Storyteller’s Pivot",
+    textCn:
+      "信不信由你，凯明 最初就读于语言与翻译学院中文系。比起枯燥的语法，他更迷恋故事的构思，因此他决定从翻译文字转向创造角色。出于对广告世界的挚爱，他加入了 Cairo Ad School，深造广告电影制作与创意策划",
+    textEn:
+      "Believe it or not, but karim studied Languages and Translation (Chinese Department). Preferring storylines to syntax, he decided to pivot from translating characters to creating them. He followed his passion for the advertising world by joining Cairo Ad School to master the craft of Ad Filmmaking and Creative Strategy",
     image: university,
   },
   {
@@ -32,7 +36,8 @@ const aboutItems = [
   },
   {
     title: "The Prime Cut",
-    text: `In the world of advertising, I consider myself the osta of this world Much like a master butcher who treats every cut with surgical precision I don't just write I Trim <br /> With 5+ years across Egypt and the Gulf, I know exactly where the prime cuts of a brand’s story lie, stripping away the noise to serve content that is as lean, high-quality, and satisfying as a master’s work.`,
+    text: `In the world of advertising, I consider myself the <span class="highlight">osta</span> of this world. Much like a master butcher who treats every cut with surgical precision, I don't just write — I trim.<br /><br />
+  With <span class="highlight">5+ years</span> across Egypt and the Gulf, I know exactly where the prime cuts of a brand’s story lie, stripping away the noise to serve content that is as lean, high-quality, and satisfying as a master’s work.`,
     image: osta,
   },
 ];
@@ -160,7 +165,7 @@ export default function Bio() {
               <div className="about-list">
                 {aboutItems.map((item, index) => (
                   <motion.article
-                    className="about-card"
+                    className={`about-card ${index === 0 ? "about-card-hover-swap" : ""}`}
                     key={index}
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -173,8 +178,19 @@ export default function Bio() {
                           ref={videoRef}
                           src={item.image}
                           muted
-                          autoPlay
                           loop
+                          playsInline
+                          onMouseEnter={() => {
+                            if (videoRef.current) {
+                              videoRef.current.play();
+                            }
+                          }}
+                          onMouseLeave={() => {
+                            if (videoRef.current) {
+                              videoRef.current.pause();
+                              videoRef.current.currentTime = 0; // optional: reset
+                            }
+                          }}
                           onLoadedMetadata={() => {
                             if (videoRef.current) {
                               videoRef.current.playbackRate = 1.25;
@@ -182,13 +198,35 @@ export default function Bio() {
                           }}
                         />
                       ) : (
-                        <img src={item.image} alt={item.title} />
+                        <img
+                          src={item.image}
+                          alt={item.title || item.titleEn}
+                        />
                       )}
                     </div>
 
                     <div className="about-content">
-                      <h3>{item.title}</h3>
-                      <p dangerouslySetInnerHTML={{ __html: item.text }} />
+                      {index === 0 ? (
+                        <>
+                          <div className="swap-title">
+                            <h3 className="swap-en">{item.titleCn}</h3>
+                            <h3 className="swap-cn">{item.titleEn}</h3>
+                          </div>
+
+                          <div className="swap-text">
+                            <p className="swap-en">{item.textCn}</p>
+                            <p
+                              className="swap-cn"
+                              dangerouslySetInnerHTML={{ __html: item.textEn }}
+                            />
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <h3>{item.title}</h3>
+                          <p dangerouslySetInnerHTML={{ __html: item.text }} />
+                        </>
+                      )}
                     </div>
                   </motion.article>
                 ))}

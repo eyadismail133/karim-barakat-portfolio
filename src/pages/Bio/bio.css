@@ -378,3 +378,72 @@ a {
     transform: translateY(3px);
   }
 }
+
+.about-card-hover-swap .swap-title,
+.about-card-hover-swap .swap-text {
+  position: relative;
+}
+
+.about-card-hover-swap .swap-en,
+.about-card-hover-swap .swap-cn {
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.about-card-hover-swap .swap-cn {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+.about-card-hover-swap .swap-title {
+  min-height: 1.6em;
+}
+
+.about-card-hover-swap .swap-text {
+  min-height: 90px;
+}
+
+.about-card-hover-swap .swap-text .swap-cn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.about-card-hover-swap:hover .swap-en {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.about-card-hover-swap:hover .swap-cn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlight {
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+/* subtle modern underline animation */
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover .highlight::after {
+  transform: scaleX(1);
+}

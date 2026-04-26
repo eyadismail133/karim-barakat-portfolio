@@ -1,7 +1,7 @@
 import "./contact.css";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
@@ -91,7 +91,7 @@ export default function Contact() {
               <div className="social-row">
                 <a
                   className="social-link"
-                  href="https://www.instagram.com/karimbarkaat"
+                  href="https://www.instagram.com/karimbarkaat?igsh=MXVvZ3VxN3Z0eG1lNQ%3D%3D&utm_source=qr"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -101,12 +101,21 @@ export default function Contact() {
 
                 <a
                   className="social-link"
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/in/karim-barkat-33baaa216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <FaLinkedin size={18} />
                   LinkedIn
+                </a>
+                <a
+                  className="social-link"
+                  href="https://wa.me/201025587792"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaWhatsapp size={18} />
+                  Whatsapp
                 </a>
               </div>
             </div>
