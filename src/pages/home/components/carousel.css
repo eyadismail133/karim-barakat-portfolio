@@ -107,6 +107,7 @@
 @media (max-width: 480px) {
   .carousel {
     height: 260px;
+    padding: 0 10px;
   }
 
   .carousel-slide.prev,
