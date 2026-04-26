@@ -15,6 +15,7 @@ import karimWork from "../../assets/IMG_8649.PNG";
 import Carousel from "../home/components/Carousel";
 import cv from "../../assets/Karim barkat C.V.pdf";
 import { Link } from "react-router-dom";
+
 const workItems = [
   {
     title: "Mouchoir",

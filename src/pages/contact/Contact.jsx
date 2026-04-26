@@ -61,7 +61,7 @@ export default function Contact() {
             {/* LEFT SIDE */}
             <div className="contact-copy">
               <p className="eyebrow">Contact</p>
-              <h1>Let’s build something clear, creative, and effective.</h1>
+              <h1>Let’s build something clear, creative, and effective</h1>
               <p className="lead">
                 Whether you need a brand voice, campaign copy, or a simple
                 conversation about your next project, this is the place to

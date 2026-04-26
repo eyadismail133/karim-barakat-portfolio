@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Card from "./Card";
 import "./carousel.css";
 
@@ -9,6 +9,14 @@ const Carousel = ({ items }) => {
 
   const nextIndex = current === items.length - 1 ? 0 : current + 1;
 
+  const goNext = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % items.length);
+  }, [items.length]);
+
+  const goPrev = useCallback(() => {
+    setCurrent((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  }, [items.length]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % items.length);
@@ -17,8 +25,24 @@ const Carousel = ({ items }) => {
     return () => clearInterval(interval);
   }, [items.length]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [items.length, goNext, goPrev]);
+
   return (
     <div className="carousel">
+      <button className="carousel-btn left" onClick={goPrev}>
+        ‹
+      </button>
       {items.map((item, index) => {
         let position = "hidden";
 
@@ -32,6 +56,9 @@ const Carousel = ({ items }) => {
           </div>
         );
       })}
+      <button className="carousel-btn right" onClick={goNext}>
+        ›
+      </button>
     </div>
   );
 };
