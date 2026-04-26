@@ -7,7 +7,7 @@ import work4 from "../../assets/work & bio/work-4.JPG";
 import work5 from "../../assets/work & bio/work-5.JPG";
 import work6 from "../../assets/work & bio/work-6.JPG";
 import work7 from "../../assets/work & bio/work-7.JPG";
-import work8 from "../../assets/work & bio/work-8.JPG";
+import work8 from "../../assets/work & bio/work-8.jpg";
 import work9 from "../../assets/work & bio/work-9.JPG";
 import work10 from "../../assets/work & bio/work-10.JPG";
 import work12 from "../../assets/work & bio/work-12.JPG";
