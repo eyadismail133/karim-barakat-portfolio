@@ -34,14 +34,13 @@
   flex: 1;
   text-align: center;
 
-  font-size: 90px;
+  font-size: 80px;
   font-weight: 700;
-  letter-spacing: 2px;
 
   color: #fff;
 
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(60px);
 
   animation: fadeUpName 0.9s ease forwards;
 }

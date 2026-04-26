@@ -1,90 +1,92 @@
 import "./home.css";
-import Card from "./components/Card";
 import { motion } from "framer-motion";
-
-import work1 from "../../assets/IMG_8644.PNG";
-import work2 from "../../assets/IMG_8649.PNG";
-
-// Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import work1 from "../../assets/work & bio/work-1.JPG";
+import work2 from "../../assets/work & bio/work-2.JPG";
+import work3 from "../../assets/work & bio/work-3-11.JPG";
+import work4 from "../../assets/work & bio/work-4.JPG";
+import work5 from "../../assets/work & bio/work-5.JPG";
+import work6 from "../../assets/work & bio/work-6.JPG";
+import work7 from "../../assets/work & bio/work-7.JPG";
+import work8 from "../../assets/work & bio/work-8.JPG";
+import work9 from "../../assets/work & bio/work-9.JPG";
+import work10 from "../../assets/work & bio/work-10.JPG";
+import work12 from "../../assets/work & bio/work-12.JPG";
+import karimWork from "../../assets/IMG_8649.PNG";
+import Carousel from "../home/components/Carousel";
 import cv from "../../assets/Karim barkat C.V.pdf";
 import { Link } from "react-router-dom";
 const workItems = [
   {
-    title: "Ad Campaign 1",
-    description: "A creative commercial for a major brand.",
+    title: "Mouchoir",
+    subtitle: "Strategy Plan",
     image: work1,
+    link: "https://drive.google.com/file/d/1utmmPM6T1_1S-TFWkFbSHzJOWyXd4q8Q/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 2",
-    description: "Award-winning short film direction.",
+    title: "AHMAD TEA",
+    subtitle: "Slogan Campaign",
     image: work2,
+    link: "https://drive.google.com/file/d/1OBy1AFJRmFfSv7sh0N_Djsh4nNet_EUM/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 3",
-    description: "Creative storytelling project.",
-    image: work1,
+    title: "SFC",
+    subtitle: "Strategy Plan",
+    image: work3,
+    link: "https://drive.google.com/file/d/1jCEa_lH0zRRTDPfWEFJWai4CJS-2SZyj/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 4",
-    description: "Brand identity concept.",
-    image: work2,
+    title: "Johnny Rockets",
+    subtitle: "Action Plan",
+    image: work4,
+    link: "https://drive.google.com/file/d/1t84NHFZR9DJAlcMQUbwO53LYjPhkE-vy/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 5",
-    description: "Visual campaign exploration.",
-    image: work1,
+    title: "Anghami",
+    subtitle: "Ad Campaign",
+    image: work5,
+    link: "https://drive.google.com/file/d/1VSU9f0VtF3gl_oheyp3qZQLnn_inkg-J/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 6",
-    description: "Motion design concept.",
-    image: work2,
+    title: "Andalusia Hospitals",
+    subtitle: "Ad Campaign",
+    image: work6,
+    link: "https://drive.google.com/file/d/1GS3fmW5Ao9gO4R7Yb5ar0yGo1kduq6YV/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 7",
-    description: "Experimental branding work.",
-    image: work1,
+    title: "Mobily",
+    subtitle: "Ad Campaign",
+    image: work7,
+    link: "https://drive.google.com/file/d/1z8KxAYvVqUUjE8eIfsaYtXtKljrIxvJl/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 8",
-    description: "Film direction project.",
-    image: work2,
+    title: "Masab Garden",
+    subtitle: "Strategy Plan",
+    image: work8,
+    link: "https://drive.google.com/file/d/1RR5TLIzWNK6PiSjEb2Iy75OltBiTztSa/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 9",
-    description: "Creative advertisement study.",
-    image: work1,
+    title: "Harbi Brands",
+    subtitle: "Ad Campaign",
+    image: work9,
+    link: "https://drive.google.com/file/d/1CBo_-lI0BmOUSClkCsikDHoqwRt-dmey/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 10",
-    description: "Social media campaign.",
-    image: work2,
+    title: "Almarai",
+    subtitle: "Ad Campaign",
+    image: work10,
+    link: "https://drive.google.com/file/d/1L7QOeqtSKvV-gdNusypVPe3bAYzauhUI/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 11",
-    description: "Art direction concept.",
-    image: work1,
+    title: "SFC",
+    subtitle: "Action Plan",
+    image: work3,
+    link: "https://drive.google.com/file/d/1pSHdLIThN0sIf7D2w7406uOjvNbUB609/view?usp=drive_link",
   },
   {
-    title: "Ad Campaign 12",
-    description: "Brand storytelling project.",
-    image: work2,
-  },
-  {
-    title: "Ad Campaign 13",
-    description: "Digital campaign idea.",
-    image: work1,
-  },
-  {
-    title: "Ad Campaign 14",
-    description: "Final portfolio project.",
-    image: work2,
+    title: "Rentex",
+    subtitle: "Strategy Plan",
+    image: work12,
+    link: "https://drive.google.com/file/d/1olUgE_G1OWPMYhwF6xaohL42HoOlw3gd/view?usp=drive_link",
   },
 ];
 
@@ -159,7 +161,7 @@ const Home = () => {
 
           {/* IMAGE */}
           <motion.img
-            src={work2}
+            src={karimWork}
             alt="Karim Barkat"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -197,30 +199,7 @@ const Home = () => {
         </motion.h2>
 
         <div className="work-swiper-wrapper">
-          <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-            loop={true}
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 120,
-              modifier: 2,
-              slideShadows: true,
-            }}
-            pagination={{ clickable: true }}
-            navigation={true}
-            modules={[EffectCoverflow, Pagination, Navigation]}
-            className="work-swiper"
-          >
-            {workItems.map((item, index) => (
-              <SwiperSlide key={index} className="swiper-slide-custom">
-                <Card {...item} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <Carousel items={workItems} />
         </div>
       </article>
     </motion.div>
