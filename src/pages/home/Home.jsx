@@ -39,7 +39,7 @@ const workItems = [
     title: "Johnny Rockets",
     subtitle: "Action Plan",
     image: work4,
-    link: "https://drive.google.com/file/d/1t84NHFZR9DJAlcMQUbwO53LYjPhkE-vy/view?usp=drive_link",
+    link: "https://drive.google.com/file/d/1xml2Y1SFPSmzOp2j_zWAXqxWAlHplfxm/view?usp=drivesdk",
   },
   {
     title: "Anghami",
