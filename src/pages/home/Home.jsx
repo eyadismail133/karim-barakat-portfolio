@@ -2,7 +2,7 @@ import "./home.css";
 import { motion } from "framer-motion";
 import work1 from "../../assets/work & bio/work-1.JPG";
 import work2 from "../../assets/work & bio/work-2.JPG";
-import work3 from "../../assets/work & bio/work-3-11.JPG";
+// import work3 from "../../assets/work & bio/work-3-11.JPG";
 import work4 from "../../assets/work & bio/work-4.JPG";
 import work5 from "../../assets/work & bio/work-5.JPG";
 import work6 from "../../assets/work & bio/work-6.JPG";
@@ -29,12 +29,12 @@ const workItems = [
     image: work2,
     link: "https://drive.google.com/file/d/1OBy1AFJRmFfSv7sh0N_Djsh4nNet_EUM/view?usp=drive_link",
   },
-  {
-    title: "SFC",
-    subtitle: "Strategy Plan",
-    image: work3,
-    link: "https://drive.google.com/file/d/1jCEa_lH0zRRTDPfWEFJWai4CJS-2SZyj/view?usp=drive_link",
-  },
+  // {
+  //   title: "SFC",
+  //   subtitle: "Strategy Plan",
+  //   image: work3,
+  //   link: "https://drive.google.com/file/d/1jCEa_lH0zRRTDPfWEFJWai4CJS-2SZyj/view?usp=drive_link",
+  // },
   {
     title: "Johnny Rockets",
     subtitle: "Action Plan",
@@ -77,12 +77,12 @@ const workItems = [
     image: work10,
     link: "https://drive.google.com/file/d/1L7QOeqtSKvV-gdNusypVPe3bAYzauhUI/view?usp=drive_link",
   },
-  {
-    title: "SFC",
-    subtitle: "Action Plan",
-    image: work3,
-    link: "https://drive.google.com/file/d/1pSHdLIThN0sIf7D2w7406uOjvNbUB609/view?usp=drive_link",
-  },
+  // {
+  //   title: "SFC",
+  //   subtitle: "Action Plan",
+  //   image: work3,
+  //   link: "https://drive.google.com/file/d/1pSHdLIThN0sIf7D2w7406uOjvNbUB609/view?usp=drive_link",
+  // },
   {
     title: "Rentex",
     subtitle: "Strategy Plan",
