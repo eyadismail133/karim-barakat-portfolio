@@ -2,8 +2,7 @@ import "./home.css";
 import { motion } from "framer-motion";
 import work1 from "../../assets/work & bio/work-1.JPG";
 import work2 from "../../assets/work & bio/work-2.JPG";
-// import work3 from "../../assets/work & bio/work-3-11.JPG";
-import work4 from "../../assets/work & bio/work-4.JPG";
+import thebadger  from "../../assets/work & bio/the badger.jpeg";
 import work5 from "../../assets/work & bio/work-5.JPG";
 import work6 from "../../assets/work & bio/work-6.JPG";
 import work7 from "../../assets/work & bio/work-7.JPG";
@@ -36,10 +35,10 @@ const workItems = [
   //   link: "https://drive.google.com/file/d/1jCEa_lH0zRRTDPfWEFJWai4CJS-2SZyj/view?usp=drive_link",
   // },
   {
-    title: "Johnny Rockets",
-    subtitle: "Action Plan",
-    image: work4,
-    link: "https://drive.google.com/file/d/1xml2Y1SFPSmzOp2j_zWAXqxWAlHplfxm/view?usp=drivesdk",
+    title: "The Badger",
+    subtitle: "Company Profile",
+    image: thebadger,
+    link: "https://drive.google.com/file/d/1YYllS4iljqSlHr5uqN-ksSpx7E7Yugy3/view?usp=drivesdk",
   },
   {
     title: "Anghami",
@@ -192,12 +191,30 @@ const Home = () => {
 
       {/* 🔥 3D SWIPER WORK SECTION */}
       <article className="work-showcase">
+        <motion.span
+          className="work-showcase-label"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Portfolio
+        </motion.span>
+
         <motion.h2
           className="work-showcase-title"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
         >
-          My Work
+          My{" "}
+          <span style={{
+            background: "linear-gradient(135deg, #D4A843, #F0C96A)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}>
+            Work
+          </span>
         </motion.h2>
 
         <div className="work-swiper-wrapper">
