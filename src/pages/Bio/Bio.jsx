@@ -36,7 +36,7 @@ const aboutItems = [
   },
   {
     title: "The Prime Cut",
-    text: `In the world of advertising, I consider myself <span class="highlight">The osta</span> of this world. Much like a master butcher who treats every cut with surgical precision, I don't just write — I trim.<br /><br />
+    text: `In the world of advertising, I consider myself <span class="highlight">The Osta</span> of this world. Much like a master butcher who treats every cut with surgical precision, I don't just write — I trim.<br /><br />
   With <span class="highlight">5+ years</span> across Egypt and the Gulf, I know exactly where the prime cuts of a brand’s story lie, stripping away the noise to serve content that is as lean, high-quality, and satisfying as a master’s work.`,
     image: osta,
   },
